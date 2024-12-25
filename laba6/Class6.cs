@@ -93,8 +93,13 @@ namespace laba6
 
         private static int LCM(int a, int b) => (a * b) / GCD(a, b);
 
-        public override bool Equals(object obj) => obj is Fraction other && _numerator == other._numerator && _denominator == other._denominator;
-
-        public override int GetHashCode() => HashCode.Combine(_numerator, _denominator);
+        public static bool operator ==(Fraction a, Fraction b)
+        {
+            return (a._numerator == b._numerator) && (a._denominator == b._denominator);
+        }
+        public static bool operator !=(Fraction a, Fraction b)
+        {
+            return !(a == b);
+        }
     }
 }
